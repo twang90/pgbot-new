@@ -19,57 +19,149 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sMj-uo-cD9">
-                                <rect key="frame" x="63" y="125" width="46" height="30"/>
+                                <rect key="frame" x="62" y="541" width="44" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button"/>
+                                <state key="normal" title="Empty"/>
                                 <connections>
+                                    <action selector="colorForBot0:" destination="BYZ-38-t0r" eventType="touchDragEnter" id="uzM-Ww-Nnu"/>
                                     <segue destination="QBE-43-eF6" kind="show" identifier="ToBot0" id="eAh-LS-dAD"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nbd-5j-qfg">
-                                <rect key="frame" x="261" y="125" width="46" height="30"/>
+                                <rect key="frame" x="262" y="541" width="44" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button"/>
+                                <state key="normal" title="Empty"/>
                                 <connections>
                                     <segue destination="QBE-43-eF6" kind="show" identifier="ToBot1" id="g7u-Sc-poG"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7F1-p7-xqV">
-                                <rect key="frame" x="63" y="318" width="46" height="30"/>
+                                <rect key="frame" x="62" y="579" width="44" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button"/>
+                                <state key="normal" title="Empty"/>
                                 <connections>
                                     <segue destination="QBE-43-eF6" kind="show" identifier="ToBot2" id="ZOa-wW-e0P"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3tt-oc-iol">
-                                <rect key="frame" x="261" y="318" width="46" height="30"/>
+                                <rect key="frame" x="262" y="579" width="44" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button"/>
+                                <state key="normal" title="Empty"/>
                                 <connections>
                                     <segue destination="QBE-43-eF6" kind="show" identifier="ToBot3" id="iM8-Pn-quL"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="R89-Uj-uzN">
-                                <rect key="frame" x="63" y="527" width="46" height="30"/>
+                                <rect key="frame" x="62" y="617" width="44" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button"/>
+                                <state key="normal" title="Empty"/>
                                 <connections>
                                     <segue destination="QBE-43-eF6" kind="show" identifier="ToBot4" id="b6f-Uh-66N"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fz5-PH-0Vs">
-                                <rect key="frame" x="261" y="527" width="46" height="30"/>
+                                <rect key="frame" x="262" y="617" width="44" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button"/>
+                                <state key="normal" title="Empty"/>
                                 <connections>
                                     <segue destination="QBE-43-eF6" kind="show" identifier="ToBot5" id="ZWA-tL-AS1"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PX9-qh-jJK">
+                                <rect key="frame" x="41" y="474" width="42" height="42"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <state key="normal" title="Black">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="dragButton:forEvent:" destination="BYZ-38-t0r" eventType="touchDragInside" id="4sp-tn-OtZ"/>
+                                    <action selector="releaseButton:forEvent:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Atz-uF-6oR"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qey-cE-iQh">
+                                <rect key="frame" x="91" y="474" width="42" height="42"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                <state key="normal" title="Yellow">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="dragButton:forEvent:" destination="BYZ-38-t0r" eventType="touchDragInside" id="ccD-Ux-d1d"/>
+                                    <action selector="releaseButton:forEvent:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Cxw-kB-ztA"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pse-6R-dX7">
+                                <rect key="frame" x="141" y="474" width="42" height="42"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="1" green="0.14913141730000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                <state key="normal" title="Red">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="dragButton:forEvent:" destination="BYZ-38-t0r" eventType="touchDragInside" id="4NH-xt-1fa"/>
+                                    <action selector="releaseButton:forEvent:" destination="BYZ-38-t0r" eventType="touchUpInside" id="jCu-Bt-f5X"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="H20-9R-nOJ">
+                                <rect key="frame" x="191" y="474" width="42" height="42"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.016804177310000001" green="0.19835099580000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                <state key="normal" title="Blue">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="dragButton:forEvent:" destination="BYZ-38-t0r" eventType="touchDragInside" id="w0F-3j-4Cq"/>
+                                    <action selector="releaseButton:forEvent:" destination="BYZ-38-t0r" eventType="touchUpInside" id="i5c-np-6xc"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mqv-Vd-XDe">
+                                <rect key="frame" x="241" y="474" width="42" height="42"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.30840110780000002" green="0.5618229508" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                <state key="normal" title="Green">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="dragButton:forEvent:" destination="BYZ-38-t0r" eventType="touchDragInside" id="xDW-aN-Rbb"/>
+                                    <action selector="releaseButton:forEvent:" destination="BYZ-38-t0r" eventType="touchUpInside" id="mHc-q3-Kd4"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3JY-se-FzW">
+                                <rect key="frame" x="291" y="474" width="42" height="42"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.58188301320000002" green="0.21569153669999999" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                <state key="normal" title="Purple">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="dragButton:forEvent:" destination="BYZ-38-t0r" eventType="touchDragInside" id="f0L-Fa-62P"/>
+                                    <action selector="releaseButton:forEvent:" destination="BYZ-38-t0r" eventType="touchUpInside" id="lSR-Sb-JZ1"/>
                                 </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
+                    <connections>
+                        <outletCollection property="buttons" destination="sMj-uo-cD9" collectionClass="NSMutableArray" id="FBq-DF-o0a"/>
+                        <outletCollection property="colorButtons" destination="PX9-qh-jJK" collectionClass="NSMutableArray" id="OL1-7H-5Jo"/>
+                        <outletCollection property="buttons" destination="nbd-5j-qfg" collectionClass="NSMutableArray" id="S03-ac-Izo"/>
+                        <outletCollection property="buttons" destination="7F1-p7-xqV" collectionClass="NSMutableArray" id="YCr-AW-brl"/>
+                        <outletCollection property="buttons" destination="3tt-oc-iol" collectionClass="NSMutableArray" id="YEd-FD-YRH"/>
+                        <outletCollection property="buttons" destination="R89-Uj-uzN" collectionClass="NSMutableArray" id="cEU-VB-xsw"/>
+                        <outletCollection property="buttons" destination="fz5-PH-0Vs" collectionClass="NSMutableArray" id="IDl-05-o5Q"/>
+                        <outletCollection property="colorButtons" destination="qey-cE-iQh" collectionClass="NSMutableArray" id="8FO-CZ-WL0"/>
+                        <outletCollection property="colorButtons" destination="pse-6R-dX7" collectionClass="NSMutableArray" id="EOo-HL-Ken"/>
+                        <outletCollection property="colorButtons" destination="H20-9R-nOJ" collectionClass="NSMutableArray" id="4GL-Fd-s9d"/>
+                        <outletCollection property="colorButtons" destination="mqv-Vd-XDe" collectionClass="NSMutableArray" id="Z1w-du-CKS"/>
+                        <outletCollection property="colorButtons" destination="3JY-se-FzW" collectionClass="NSMutableArray" id="lx2-bO-4eh"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
@@ -87,7 +179,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <connections>
-                                    <segue destination="BYZ-38-t0r" kind="show" identifier="Bot0Return" id="Oo2-Rv-DIR"/>
+                                    <segue destination="BYZ-38-t0r" kind="show" id="KMM-98-PXT"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Phase 1: The First City" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ODq-T9-EpX">
@@ -176,7 +268,7 @@
                                 <rect key="frame" x="155" y="37" width="64" height="64"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
@@ -198,6 +290,6 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="ZWA-tL-AS1"/>
+        <segue reference="ZOa-wW-e0P"/>
     </inferredMetricsTieBreakers>
 </document>
