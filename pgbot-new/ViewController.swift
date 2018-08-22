@@ -47,6 +47,8 @@ class ViewControllerButtons: UIViewController {
             for i in 0...ViewControllerButtons.buttonStorage.count-1 {
                 buttons[i].backgroundColor = ViewControllerButtons.buttonStorage[i].backgroundColor
                 buttons[i].setTitle(ViewControllerButtons.buttonStorage[i].title(for: .normal), for: .normal)
+                buttons[i].setTitleColor(ViewControllerButtons.buttonStorage[i].titleColor(for: .normal), for: .normal)
+                
             }
             ViewControllerButtons.buttonStorage.removeAll(keepingCapacity: false)
         }
@@ -60,8 +62,9 @@ class ViewControllerButtons: UIViewController {
         
         // Don't allow users to click a button, if it's not painted
         for b in buttons {
-            if b.backgroundColor == nil {
+            if b.backgroundColor == nil || b.backgroundColor == .white {
                 b.isEnabled = false
+                b.setTitleColor(.lightGray, for: .normal)
             }
         }
     }
@@ -88,6 +91,7 @@ class ViewControllerButtons: UIViewController {
                 // Generate a bot and paint it
                 bots[i] = newBot()
                 buttons[i].setTitle("Bot "+String(i+1), for: .normal)
+                buttons[i].setTitleColor(.white, for: .normal)
                 if (buttons[i].backgroundColor == nil) {
                     // Paint the button if never painted before
                     buttons[i].backgroundColor = sender.backgroundColor
@@ -111,6 +115,21 @@ class ViewControllerButtons: UIViewController {
         }
     }
     
+    @IBAction func resetBots(_ sender: UIButton) {
+        print("touch up")
+        print(buttons.count)
+        for i in 0...buttons.count-1 {
+            buttons[i].setTitle("Empty", for: .normal)
+            buttons[i].setTitleColor(.lightGray, for: .normal)
+            buttons[i].isEnabled = false
+            buttons[i].backgroundColor = nil
+        }
+        
+        for i in 0...colorButtons.count-1 {
+            colorButtons[i].isEnabled = true
+            colorButtons[i].alpha = 1
+        }
+    }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
