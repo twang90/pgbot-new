@@ -50,8 +50,8 @@ class ViewControllerButtons: UIViewController {
             }
             ViewControllerButtons.buttonStorage.removeAll(keepingCapacity: false)
         }
-        if (ViewControllerButtons.buttonStorage.count != 0) {
-            for i in 0...ViewControllerButtons.buttonStorage.count-1 {
+        if (ViewControllerButtons.colorButtonStorage.count != 0) {
+            for i in 0...ViewControllerButtons.colorButtonStorage.count-1 {
                 colorButtons[i].alpha = ViewControllerButtons.colorButtonStorage[i].alpha
                 colorButtons[i].isEnabled = ViewControllerButtons.colorButtonStorage[i].isEnabled
             }
