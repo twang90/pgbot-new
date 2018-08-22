@@ -8,8 +8,13 @@
 
 import UIKit
 
+let maxBots = 6
+var bots : [[String]] = Array(repeating: [], count: maxBots)
+
 class ViewControllerButtons: UIViewController {
 
+    //static let maxBots = 6
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
@@ -21,27 +26,45 @@ class ViewControllerButtons: UIViewController {
         // Dispose of any resources that can be recreated.
     }
 
-
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let dest = segue.destination as! ViewControllerDisplay
+        for i in 0...maxBots-1 {
+            if (segue.identifier == "ToBot"+String(i)){
+                print ("To Bot "+String(i))
+                dest.setIdentifier(id: i)
+            }
+        }
+    }
 }
 
 class ViewControllerDisplay: UIViewController {
-    static var displayed = false
-    static var bots : [String] = []
+    var botIdentifier : Int = -1
+
+    func setIdentifier(id: Int) {
+        botIdentifier = id
+    }
+    
+    @IBOutlet weak var titleLabel: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-        if (!ViewControllerDisplay.displayed){
-            ViewControllerDisplay.bots = newBot()
-            ViewControllerDisplay.displayed = true
+        print ("In bot "+String(botIdentifier))
+        assert(botIdentifier != -1)
+        
+        // Generate a new bot if the first time
+        if (bots[botIdentifier] == []){
+            bots[botIdentifier] = newBot()
         }
+        // Display the title
+        titleLabel.text = "Bot "+String(botIdentifier)
+        // Display the bot
         for i in 0...4 {
-            TextBox[i].text = ViewControllerDisplay.bots[i]
+            TextBox[i].text = bots[botIdentifier][i]
         }
     }
     
     @IBOutlet var TextBox: [UITextView]!
-    
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
