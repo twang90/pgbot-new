@@ -263,6 +263,9 @@ class ViewControllerDisplay: UIViewController {
                 }
                 return
             }
+            else if segue.destination is ViewControllerButtons {
+                return
+            }
         }
         assert(false)
     }
