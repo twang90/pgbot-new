@@ -222,13 +222,50 @@ class ViewControllerDisplay: UIViewController {
         for i in 0...4 {
             TextBox[i].text = bots[botIdentifier].getOutput()[i]
         }
+        moneyDisplay.text = String(bots[botIdentifier].money)
+        moneyStepper.value = Double(bots[botIdentifier].money)
     }
     
     @IBOutlet var TextBox: [UITextView]!
+    
+    @IBOutlet weak var moneyStepper: UIStepper!
+    
+    @IBAction func changeMoneyWithStepper(_ sender: UIStepper, forEvent event: UIEvent) {
+        bots[botIdentifier].money = Int(sender.value)
+        moneyDisplay.text = String(Int(sender.value))
+    }
+    
+    @IBOutlet weak var moneyDisplay: UILabel!
+    
+    func changeMoneyWithCalculator(money: Int, increment: Bool) {
+        var result = bots[botIdentifier].money
+        if (increment) {
+            result += money
+        }
+        else {
+            result -= money
+        }
+        bots[botIdentifier].money = result
+        print(result)
+    }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let sender_button = sender as? UIButton {
+            if let dest = segue.destination as? ViewControllerCalculator {
+                dest.setIdentifier(id: botIdentifier, color: botColor)
+                if (sender_button.title(for: .normal) == "Spend More") {
+                    dest.setDecrement()
+                }
+                return
+            }
+        }
+        assert(false)
+    }
+    
 }
 
