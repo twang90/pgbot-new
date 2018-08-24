@@ -27,8 +27,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Empty"/>
                                 <connections>
-                                    <action selector="colorForBot0:" destination="BYZ-38-t0r" eventType="touchDragEnter" id="uzM-Ww-Nnu"/>
-                                    <segue destination="QBE-43-eF6" kind="show" identifier="ToBot0" id="eAh-LS-dAD"/>
+                                    <action selector="changePlayerType:forEvent:" destination="BYZ-38-t0r" eventType="touchUpInside" id="pRh-Fx-1ZM"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nbd-5j-qfg">
@@ -36,7 +35,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Empty"/>
                                 <connections>
-                                    <segue destination="QBE-43-eF6" kind="show" identifier="ToBot1" id="g7u-Sc-poG"/>
+                                    <action selector="changePlayerType:forEvent:" destination="BYZ-38-t0r" eventType="touchUpInside" id="84R-mM-wxj"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7F1-p7-xqV">
@@ -44,7 +43,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Empty"/>
                                 <connections>
-                                    <segue destination="QBE-43-eF6" kind="show" identifier="ToBot2" id="ZOa-wW-e0P"/>
+                                    <action selector="changePlayerType:forEvent:" destination="BYZ-38-t0r" eventType="touchUpInside" id="gsX-Cp-eh0"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3tt-oc-iol">
@@ -52,7 +51,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Empty"/>
                                 <connections>
-                                    <segue destination="QBE-43-eF6" kind="show" identifier="ToBot3" id="iM8-Pn-quL"/>
+                                    <action selector="changePlayerType:forEvent:" destination="BYZ-38-t0r" eventType="touchUpInside" id="r8d-kV-xtP"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="R89-Uj-uzN">
@@ -60,7 +59,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Empty"/>
                                 <connections>
-                                    <segue destination="QBE-43-eF6" kind="show" identifier="ToBot4" id="b6f-Uh-66N"/>
+                                    <action selector="changePlayerType:forEvent:" destination="BYZ-38-t0r" eventType="touchUpInside" id="z1z-HH-u4R"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fz5-PH-0Vs">
@@ -68,7 +67,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Empty"/>
                                 <connections>
-                                    <segue destination="QBE-43-eF6" kind="show" identifier="ToBot5" id="ZWA-tL-AS1"/>
+                                    <action selector="changePlayerType:forEvent:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Vun-Vs-WgA"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PX9-qh-jJK">
@@ -175,11 +174,95 @@
                         <outletCollection property="colorButtons" destination="H20-9R-nOJ" collectionClass="NSMutableArray" id="4GL-Fd-s9d"/>
                         <outletCollection property="colorButtons" destination="mqv-Vd-XDe" collectionClass="NSMutableArray" id="Z1w-du-CKS"/>
                         <outletCollection property="colorButtons" destination="3JY-se-FzW" collectionClass="NSMutableArray" id="lx2-bO-4eh"/>
+                        <segue destination="QBE-43-eF6" kind="show" identifier="ToBot" id="XSj-0f-ed5"/>
+                        <segue destination="jQd-OU-3mO" kind="show" identifier="ToHuman" id="Vih-uV-fon"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="568.79999999999995" y="126.38680659670166"/>
+        </scene>
+        <!--View Controller Human Display-->
+        <scene sceneID="B3g-RV-CWG">
+            <objects>
+                <viewController id="jQd-OU-3mO" customClass="ViewControllerHumanDisplay" customModule="pgbot_new" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="yBN-23-RDf">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Title" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kc7-Ub-t12">
+                                <rect key="frame" x="23" y="50" width="101" height="101"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Elektro" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ATl-tZ-vIQ">
+                                <rect key="frame" x="77" y="323" width="69" height="28"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="23"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uBK-le-IUJ">
+                                <rect key="frame" x="77" y="382" width="220" height="222"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name=".SFNSDisplay" family=".SF NS Display" pointSize="28"/>
+                                <state key="normal">
+                                    <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="showMoney:forEvent:" destination="jQd-OU-3mO" eventType="touchUpInside" id="ef4-mU-onf"/>
+                                    <action selector="showMoneyStart:forEvent:" destination="jQd-OU-3mO" eventType="touchDown" id="5HE-Pr-uQp"/>
+                                </connections>
+                            </button>
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Number" textAlignment="natural" clearsOnBeginEditing="YES" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="7CP-J6-mtq">
+                                <rect key="frame" x="126" y="179" width="135" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="numbersAndPunctuation" returnKeyType="done" enablesReturnKeyAutomatically="YES" smartDashesType="no" smartInsertDeleteType="no" smartQuotesType="no"/>
+                                <connections>
+                                    <action selector="doneEditing:" destination="jQd-OU-3mO" eventType="editingDidEndOnExit" id="eKz-Jb-JqE"/>
+                                </connections>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hKA-fw-dT6">
+                                <rect key="frame" x="269" y="204" width="50" height="50"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Spend"/>
+                                <connections>
+                                    <action selector="changeMoney:" destination="jQd-OU-3mO" eventType="touchUpInside" id="W2I-aF-Sup"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="X9v-ps-fzD">
+                                <rect key="frame" x="269" y="146" width="50" height="50"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Earn"/>
+                                <connections>
+                                    <action selector="changeMoney:" destination="jQd-OU-3mO" eventType="touchUpInside" id="bni-SG-eqU"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pdt-8L-3fl">
+                                <rect key="frame" x="321" y="614" width="53" height="53"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="return"/>
+                                <connections>
+                                    <segue destination="BYZ-38-t0r" kind="show" id="Zlh-dT-a16"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="4lM-eI-NYb"/>
+                    </view>
+                    <connections>
+                        <outlet property="moneyDisplay" destination="uBK-le-IUJ" id="rvm-nA-TMr"/>
+                        <outlet property="moneyInput" destination="7CP-J6-mtq" id="4Z3-K8-0Br"/>
+                        <outlet property="titleLabel" destination="kc7-Ub-t12" id="TNX-2C-hfj"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ejA-jF-80a" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="568.79999999999995" y="854.1229385307347"/>
         </scene>
         <!--View Controller Display-->
         <scene sceneID="Adh-sp-UER">
@@ -494,6 +577,7 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="PCS-d8-Mcq"/>
-        <segue reference="SUs-zW-AHV"/>
+        <segue reference="XSj-0f-ed5"/>
+        <segue reference="Zlh-dT-a16"/>
     </inferredMetricsTieBreakers>
 </document>

@@ -42,10 +42,21 @@ let descriptions = [["Last Choice",
                      "Phase 4: Always Builds First City For 0 Elektro",
                      "Phase 5: Gets Income for +1 City"]]
 
-class PGBot {
+class Player {
     init() {
-        properties = [random(6), random(6), random(6), random(6), random(6)]
         money = 50
+        human = true
+    }
+    var money: Int
+    var human: Bool
+}
+
+class PGBot : Player {
+    override init() {
+        // Random generate properities
+        properties = [random(6), random(6), random(6), random(6), random(6)]
+        super.init()
+        human = false
         if properties[4] == 0 { // Special ability is about start money
             money = 100
         }
@@ -60,11 +71,12 @@ class PGBot {
     }
     
     var properties : [Int]
-    var money : Int
 }
 
-let maxBots = 6
-var bots : [PGBot] = Array(repeating: PGBot(), count: maxBots) //Array(count: maxBots)
+let maxPlayers = 6
+var players : [Player] = Array(repeating: Player(), count: maxPlayers)
+
+//var bots : [PGBot] = Array(repeating: PGBot(), count: maxBots) //Array(count: maxBots)
 
 class ViewControllerButtons: UIViewController {
     
@@ -99,10 +111,10 @@ class ViewControllerButtons: UIViewController {
             ViewControllerButtons.colorButtonStorage.removeAll(keepingCapacity: false)
         }
         
-        // Don't allow users to click a button, if it's not painted
+        // Update: the button can be clicked to vary between: Empty/Human/AI
         for b in buttons {
             if b.backgroundColor == nil || b.backgroundColor == .white {
-                b.isEnabled = false
+                //b.isEnabled = false
                 b.setTitleColor(.lightGray, for: .normal)
             }
         }
@@ -119,22 +131,58 @@ class ViewControllerButtons: UIViewController {
     }
     
     
+    @IBAction func changePlayerType(_ sender: UIButton, forEvent event: UIEvent) {
+        let title : String = sender.title(for: .normal)!
+        if sender.backgroundColor != nil && sender.backgroundColor != .white {
+            
+            assert (title != "Empty")
+            if title.contains("Bot") {
+                self.performSegue(withIdentifier: "ToBot", sender: sender)
+            }
+            else if title.contains("Human") {
+                self.performSegue(withIdentifier: "ToHuman", sender: sender)
+            }
+            return
+        }
+        
+        if (title.contains("Empty")) {
+            sender.setTitle("Human "+String(buttons.index(of: sender)!+1), for: .normal)
+            sender.setTitleColor(.blue, for: .normal)
+        }
+        else if title.contains("Human") {
+            sender.setTitle("Bot "+String(buttons.index(of: sender)!+1), for: .normal)
+            sender.setTitleColor(.blue, for: .normal)
+        }
+        else if title.contains("Bot") {
+            sender.setTitle("Empty", for: .normal)
+            sender.setTitleColor(.lightGray, for: .normal)
+        }
+    }
+    
     @IBAction func releaseButton(_ sender: UIButton, forEvent event: UIEvent) {
-        for i in 0...maxBots-1 {
+        for i in 0...maxPlayers-1 {
             if (buttons[i].frame.intersects(sender.frame)){
-                // disable the button and change color
+                // Go back
                 sender.center = colorButtonLoc[colorButtons.index(of: sender)!]
+                if buttons[i].title(for: .normal) == "Empty" {
+                    // Nothing happens, just go back
+                    break
+                }
+                // disable the button and change color
                 sender.alpha = 0.2
                 sender.isEnabled = false
 
-                // Generate a bot and paint it
-                bots[i] = PGBot()
-                buttons[i].setTitle("Bot "+String(i+1), for: .normal)
+                if (buttons[i].title(for: .normal)?.contains("Bot"))! {
+                    //Generate a bot to replace human player
+                    players[i] = PGBot()
+                }
+                else if (buttons[i].title(for: .normal)?.contains("Human"))! {
+                    players[i] = Player()
+                }
                 buttons[i].setTitleColor(.white, for: .normal)
                 if (buttons[i].backgroundColor == nil) {
                     // Paint the button if never painted before
                     buttons[i].backgroundColor = sender.backgroundColor
-                    buttons[i].isEnabled = true
                 }
                 else {
                     // Re-paint the bot and restore the old color
@@ -160,7 +208,6 @@ class ViewControllerButtons: UIViewController {
         for i in 0...buttons.count-1 {
             buttons[i].setTitle("Empty", for: .normal)
             buttons[i].setTitleColor(.lightGray, for: .normal)
-            buttons[i].isEnabled = false
             buttons[i].backgroundColor = nil
         }
         
@@ -175,25 +222,27 @@ class ViewControllerButtons: UIViewController {
         // Dispose of any resources that can be recreated.
     }
 
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let sender_button = sender as? UIButton {
             if let dest = segue.destination as? ViewControllerDisplay {
-                for i in 0...maxBots-1 {
-                    if (segue.identifier == "ToBot"+String(i)){
-                        print ("To Bot "+String(i))
-                        dest.setIdentifier(id: i, color: sender_button.backgroundColor!)
-                    }
-                }
-                
-                // Save the status
-                for i in 0...buttons.count-1 {
-                    ViewControllerButtons.buttonStorage.append(buttons[i])
-                }
-                for i in 0...colorButtons.count-1 {
-                    ViewControllerButtons.colorButtonStorage.append(colorButtons[i])
-                }
-                return
+                let index = buttons.index(of: sender_button)!
+                print ("To Bot "+String(index))
+                dest.setIdentifier(id: index, color: sender_button.backgroundColor!)
             }
+            else if let dest = segue.destination as? ViewControllerHumanDisplay {
+                let index = buttons.index(of: sender_button)!
+                print ("To Human "+String(index))
+                dest.setIdentifier(id: index, color: sender_button.backgroundColor!)
+            }
+            // Save the status
+            for i in 0...buttons.count-1 {
+                ViewControllerButtons.buttonStorage.append(buttons[i])
+            }
+            for i in 0...colorButtons.count-1 {
+                ViewControllerButtons.colorButtonStorage.append(colorButtons[i])
+            }
+            return
         }
         assert(false)
     }
@@ -213,17 +262,20 @@ class ViewControllerDisplay: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         print ("In bot "+String(botIdentifier))
-        assert(botIdentifier != -1 && bots.count > botIdentifier)
+        assert(botIdentifier != -1 && players.count > botIdentifier)
         
         // Display the title
-        titleLabel.text = "Bot "+String(botIdentifier+1)
-        titleLabel.backgroundColor = botColor
-        // Display the bot
-        for i in 0...4 {
-            TextBox[i].text = bots[botIdentifier].getOutput()[i]
+        if let bot = players[botIdentifier] as? PGBot {
+            titleLabel.text = "Bot "+String(botIdentifier+1)
+            titleLabel.backgroundColor = botColor
+            // Display the bot
+            for i in 0...4 {
+                TextBox[i].text = bot.getOutput()[i]
+            }
         }
-        moneyDisplay.text = String(bots[botIdentifier].money)
-        moneyStepper.value = Double(bots[botIdentifier].money)
+        
+        moneyDisplay.text = String(players[botIdentifier].money)
+        moneyStepper.value = Double(players[botIdentifier].money)
     }
     
     @IBOutlet var TextBox: [UITextView]!
@@ -231,21 +283,21 @@ class ViewControllerDisplay: UIViewController {
     @IBOutlet weak var moneyStepper: UIStepper!
     
     @IBAction func changeMoneyWithStepper(_ sender: UIStepper, forEvent event: UIEvent) {
-        bots[botIdentifier].money = Int(sender.value)
+        players[botIdentifier].money = Int(sender.value)
         moneyDisplay.text = String(Int(sender.value))
     }
     
     @IBOutlet weak var moneyDisplay: UILabel!
     
     func changeMoneyWithCalculator(money: Int, increment: Bool) {
-        var result = bots[botIdentifier].money
+        var result = players[botIdentifier].money
         if (increment) {
             result += money
         }
         else {
             result -= money
         }
-        bots[botIdentifier].money = result
+        players[botIdentifier].money = result
         print(result)
     }
     

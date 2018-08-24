@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		DB92B07D212E264B0008B1EB /* Calculator.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB92B07C212E264B0008B1EB /* Calculator.swift */; };
+		DB92B081212F7F980008B1EB /* PlayerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB92B080212F7F980008B1EB /* PlayerView.swift */; };
 		DBC4798E212D5E3F009AEAD6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBC4798D212D5E3F009AEAD6 /* AppDelegate.swift */; };
 		DBC47990212D5E3F009AEAD6 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBC4798F212D5E3F009AEAD6 /* ViewController.swift */; };
 		DBC47993212D5E3F009AEAD6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DBC47991212D5E3F009AEAD6 /* Main.storyboard */; };
@@ -36,6 +37,7 @@
 
 /* Begin PBXFileReference section */
 		DB92B07C212E264B0008B1EB /* Calculator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Calculator.swift; sourceTree = "<group>"; };
+		DB92B080212F7F980008B1EB /* PlayerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerView.swift; sourceTree = "<group>"; };
 		DBC4798A212D5E3F009AEAD6 /* pgbot-new.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "pgbot-new.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		DBC4798D212D5E3F009AEAD6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DBC4798F212D5E3F009AEAD6 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -106,6 +108,7 @@
 				DBC47996212D5E41009AEAD6 /* LaunchScreen.storyboard */,
 				DBC47999212D5E41009AEAD6 /* Info.plist */,
 				DB92B07C212E264B0008B1EB /* Calculator.swift */,
+				DB92B080212F7F980008B1EB /* PlayerView.swift */,
 			);
 			path = "pgbot-new";
 			sourceTree = "<group>";
@@ -262,6 +265,7 @@
 				DBC47990212D5E3F009AEAD6 /* ViewController.swift in Sources */,
 				DBC4798E212D5E3F009AEAD6 /* AppDelegate.swift in Sources */,
 				DB92B07D212E264B0008B1EB /* Calculator.swift in Sources */,
+				DB92B081212F7F980008B1EB /* PlayerView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -444,7 +448,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "twang14.pgbot-new";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -462,7 +466,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "twang14.pgbot-new";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
